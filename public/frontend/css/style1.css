@@ -1,0 +1,27 @@
+.nav
+{
+	/*position: fixed;*/
+	width: 100%;
+	background-color: #fff;
+	color: #000;
+	list-style: none;
+	text-align: right;
+	padding: 20px 0 22px 0;
+	z-index: 6;
+}
+
+.nav > li
+{
+	display: inline-block;
+	padding: 0 25px 0 25px;
+	font-size: 12px;
+}
+
+.logo
+{
+	color: #000;
+	float: left;
+	padding-left: 25px;
+	font-size: 16px;
+	font-weight: bold;
+}

@@ -1,0 +1,97 @@
+.rounded-buttons-large
+{
+	height: 50px;
+	width: 80%;
+	margin-top: 5px;
+	margin-right: 30px;
+	border: 0px;
+	border-radius: 6px;
+	margin-left: 35px;
+	font-family: helvetica;
+	font-size: 20px;
+
+}
+.rounded-buttons-small
+{
+	height: 50px;
+	width: 50%;
+	margin-top: 5px;
+	border: 0px;
+	border-radius: 6px;
+	font-family: helvetica;
+	font-size: 15px;
+}
+.rounded-input
+{
+	height: 50px;
+	width: 80%;
+	margin-top: 5px;
+	border: 1px;
+	border-style: solid;
+	border-color: #8e9192;
+	border-radius: 6px;
+	font-family: helvetica;
+	font-size: 20px;
+	padding-left: 20px;
+
+}
+
+
+/*.rounded-id-input {
+	
+}*/
+.log-selection
+{
+	width: 50%;
+	margin-top: 5px;
+	margin-left: 10px;
+	border: 1px;
+	border-style: solid;
+	border-color: #cfcfcf;
+	border-radius: 4px;
+	font-family: helvetica;
+	font-size: inherit;
+	text-align: center;
+    color: #565656;
+    padding: 7px 12px;
+    height: 38px;
+
+}
+
+.employee-or-intern {
+	width: 30%;
+	margin-top: 5px;
+	margin-left: 10px;
+	border: 1px;
+	border-style: solid;
+	border-color: #cfcfcf;
+	border-radius: 4px 0 0 4px;
+	font-family: helvetica;
+	font-size: inherit;
+	text-align: center;
+    color: #565656;
+    padding: 7px 12px;
+    height: 38px;
+}
+.rounded-id-input {
+	width: 65%;
+	margin-top: 5px;
+	border: 1px;
+	border-style: solid;
+	border-color: #cfcfcf;
+	border-radius: 0 4px 4px 0;
+	font-family: helvetica;
+	font-size: inherit;
+    color: #565656;
+    padding: 7px 12px;
+    height: 38px;
+
+}
+
+
+input:focus {
+	outline:none !important;
+}
+button:focus {
+	outline:none !important;
+}

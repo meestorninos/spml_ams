@@ -1,0 +1,212 @@
+/*banner design 1 Starts*/
+
+.banner1
+{
+	width: inherit;
+	position: relative;
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+}
+.banner1 > .banner-image1
+{
+	width: 100%;
+	left: 30px;
+	display: block;
+}
+
+.wrapper1
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 3;
+}
+
+
+.wrapper1:before
+{
+	position: absolute;
+	content: '';
+	width: 8%;
+	height: inherit;
+	top: 0;
+	left: 56.5%;
+	background-color: #244c80;
+	transform: skewX(35deg);
+	z-index: 4;
+	opacity: 0.8;
+}
+
+.greetings
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 3;
+	font-family: brilliantte;
+	font-size: 30pt;
+	color: black;
+	top: 35%;
+	left: 10%;
+	border-top: 5px;
+	border-bottom: 5px;
+	border-style: solid;
+	border-color: black;
+	border-left: 0;
+	border-right: 0;
+	width: 30%;
+	height: 25%;
+	padding-left: 5%;
+	padding-bottom: 2%;
+}
+.name
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 3;
+	font-family: future;
+	font-size: 30pt;
+	color: black;
+	top: 60%;
+	left: 17%;
+}
+
+.wrapper2
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 1;
+}
+
+
+.wrapper2:before
+{
+	position: absolute;
+	content: '';
+	width: 90%;
+	height: inherit;
+	top: 0;
+	left: -22.5%;
+	background-color: #f7f1e3;
+	transform: skewX(35deg);
+}
+
+.wrapper3-triangle
+{
+	position: absolute;
+	width: 8%;
+	height: inherit;
+	border-left: 130px solid transparent;
+	border-right: 100px solid transparent;
+	border-bottom: 140px solid #4aa8d4;
+	top: 44.5%;
+	left: 53.1%;
+	z-index: 3;
+}
+
+
+/*.wrapper3
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 3;
+}
+
+
+.wrapper3:before
+{
+	position: absolute;
+	content: '';
+	width: 4%;
+	height: inherit;
+	top: 0;
+	left: 39.2%;
+	background-color: #6c5ce7;
+	transform: skewX(-3deg);
+	z-index: 3;
+	}*/
+
+
+/*.wrapper4
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 3;
+}
+
+
+.wrapper4:before
+{
+	position: absolute;
+	content: '';
+	width: 4%;
+	height: inherit;
+	top: 0;
+	left: 44.9%;
+	background-color: #74b9ff;
+	transform: skewX(-23deg);
+	z-index: 4;
+	}*/
+/*.wrapper3
+{
+	position: absolute;
+	width: 98%;
+	height: 80.04%;
+	display: block;
+	z-index: 4;
+}
+
+
+.wrapper3:before, .wrapper3:after
+{
+	position: absolute;
+	content: '';
+	height: 20%;
+	width: 20%;
+	height: inherit;
+	top: 29.2%;
+	left: 9.6%;
+	background-color: #fff;
+	transform: skewX(25deg);
+	z-index: 4;
+}
+
+.wrapper3:after
+{
+	transform: skewX(-70deg);
+}
+*/
+/*.wrapper4
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 4;
+}
+
+
+.wrapper4:before
+{
+	position: absolute;
+	content: '';
+	height: 20%;
+	width: 20%;
+	height: inherit;
+	top: 0;
+	left: -1%;
+	background-color: #fff;
+	z-index: 4;
+}
+*/
+
+/*banner design 1 Ends*/

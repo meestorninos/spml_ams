@@ -1,0 +1,6 @@
+/vendor
+node_modules/
+Homestead.yaml
+Homestead.json
+
+public/fonts/vendor/font-awesome/fontawesome-webfont.eot

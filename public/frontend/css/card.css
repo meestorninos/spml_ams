@@ -1,0 +1,255 @@
+/*card design 1 start*/
+
+.card1
+{
+  background:#FFF;
+  text-align: center;
+  border-radius:20px;
+  padding:60px 10px;
+  width: 55%;
+  height: 380px;
+}
+.card1
+{
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+}
+
+
+.left-background1
+{
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 45%;
+ height: 100%;
+ background-color: #337ab6;
+ border-top-left-radius: 20px;
+ border-bottom-left-radius: 20px;
+}
+
+.left-info1 h1
+{
+  margin-top: 10px;
+  margin-bottom: 3px;
+  font-family: bebas-neue;
+  font-size: 50pt;
+  color: #fff;
+}
+
+.login-date1
+{
+  margin-bottom: 3px;
+  font-family: bebas-neue;
+  font-size: 20pt;
+  color: #fff;
+  width: 250px;
+  text-transform: uppercase;
+}
+
+.right-background1
+{
+ position: fixed;
+ top: 0;
+ right: 0;
+ width: 55%;
+ height: 100%;
+ background-color: #fff;
+ border-top-right-radius: 20px;
+ border-bottom-right-radius: 20px;
+}
+.right-info h1
+{
+  font-family: helvetica;
+  font-size: 35px;
+  color: #fff;
+}
+.right-info1 h3
+{
+  margin-top: 95px;
+  margin-bottom: 0px;
+  font-family: helvetica;
+  font-size: 20pt;
+  color: #000;
+}
+
+.goodbye-greet
+{
+   margin-top: 200px;
+  margin-bottom: 3px;
+  font-family: brilliantte;
+  font-size: 50pt;
+  color: #337ab6;
+}
+
+
+.day-header
+{
+  font-family: awesomeseason;
+  font-size: 40pt;
+  color: #fff;
+}
+
+.left-border
+{
+  border: 10px;
+  border-style: solid;
+  border-color: #fff;
+  padding-top: 65px;
+  padding-bottom: 65px;
+  margin-top: 10px;
+}
+/*card design 1 end*/
+
+
+
+
+/*card design 2 start*/
+
+.card2
+{
+  background:#FFF;
+  text-align: center;
+  border-radius:20px;
+  padding:60px 10px;
+  width: 55%;
+  height: 580px;
+}
+.card2
+{
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+}
+
+
+.login-date
+{
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border: 5px;
+  border-style: solid;
+  border-color: #337ab6;
+  font-family: bebas-neue;
+  font-size: 25pt;
+  color: #337ab6;
+  width: 250px;
+  text-transform: uppercase;
+}
+
+.left-background
+{
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 45%;
+ height: 100%;
+ background-color: #fff;
+ border-top-left-radius: 20px;
+ border-bottom-left-radius: 20px;
+}
+
+.day2
+{
+  font-family: brilliantte;
+  font-size: 50pt;
+  color: #337ab6;
+  margin-bottom: 8px;
+}
+
+.date2
+{
+  font-family: steelfish;
+  font-size: 20pt;
+  color: #337ab6;
+  margin-top: 3%;
+}
+
+.time2
+{
+  border-top: 5px;
+  border-bottom: 5px;
+  border-right: 0px;
+  border-left: 0px;
+  border-style: solid;
+  border-color: #337ab6;
+  width: 50%;
+  font-family: tlf;
+  font-size: 50pt;
+  color: #337ab6;
+}
+
+.greetings
+{
+  font-family: bebas-neue ;
+  font-size: 40pt;
+  color: #337ab6;
+}
+
+.left-info p
+{ 
+  margin-top: 130px;
+  line-height: 0%;
+}
+
+
+
+.right-background
+{
+ position: fixed;
+ top: 0;
+ right: 0;
+ width: 55%;
+ height: 100%;
+ background-color: #337ab6;
+ border-top-right-radius: 20px;
+ border-bottom-right-radius: 20px;
+}
+.right-info h2
+{
+  font-family: helvetica;
+  font-size: 35px;
+  color: #fff;
+}
+.right-info h4
+{
+  font-family: helvetica;
+  font-size: 20px;
+  color: #fff;
+}
+.my-picture
+{
+  margin-top: 70px;
+  width: 230px;
+  height: 230px;
+  border: 8px;
+  border-style: solid;
+  border-color: #fff;
+  background-clip: padding-box;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 100%; 
+}
+.surname
+{
+  text-transform: uppercase;
+}
+.redirect-timer
+{
+  margin-top: 40px;
+  font-family: helvetica-light-italic;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+}
+/*card design 2 end*/
+
+
+
+
+
+
+
