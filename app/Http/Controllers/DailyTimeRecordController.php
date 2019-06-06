@@ -73,29 +73,32 @@ class DailyTimeRecordController extends Controller
         $password = $request->input('password');
 
         //query to get the data who logged in
-        $validate_intern_number = InternInfo::select('intern_num','intern_firstname','intern_lastname','intern_middlename','intern_nickname','intern_image','intern_department','position')->get();
+        $validate_intern_number = InternInfo::select('intern_id','intern_num','intern_firstname','intern_lastname','intern_middlename','intern_nickname','intern_image','intern_department','position')->get();
 
-        $validate_emp_num = EmployeeInfo::select('emp_num','emp_firstname','emp_lastname','emp_middlename','emp_nickname','emp_image','emp_department','position')->get();
+        $validate_emp_num = EmployeeInfo::select('emp_id','emp_num','emp_firstname','emp_lastname','emp_middlename','emp_nickname','emp_image','emp_department','position')->get();
 
         $val_am_check = DailyTimeRecord::select('am_in')->where(['employee_number' => $id_number, 'Date' => $current_date])->first();
         
         $check_user = DailyTimeRecord::select('employee_number')->where('employee_number', $id_number)->first();
         
-        $check_date = DailyTimeRecord::select('Date','employee_number')->where(['Date' => $current_date,'employee_number' => $id_number,'status' => 'WORKING'])->get();
+        $check_date = DailyTimeRecord::where(['Date' => $current_date,'employee_number' => $id_number,'status' => 'WORKING'])->exists();
 
-        $val_int = InternInfo::select('intern_image')->where(['intern_num' => $id_number, 'intern_password' => $password])->get();
-
-        $val_emp = EmployeeInfo::select('emp_image')->where(['emp_num' => $id_number, 'emp_password' => $password])->get();
 
 
         $intern = $validate_intern_number;
 
         $employee = $validate_emp_num;
 
-        if(count($val_int) > 0){
+        if(InternInfo::select('intern_id')->where(['intern_num' => $id_number, 'intern_password' => $password])->exists()){
 
-            if($check_date === null){
+            if($check_date == true){
 
+                // error handling    message                    subject
+                Alert::warning('you have already logged in', 'Warning')->autoclose(1500);
+                return back();
+
+            }else{
+                    
                     // morning
 
                 if($currentTime <= $am_in){
@@ -115,7 +118,7 @@ class DailyTimeRecordController extends Controller
 
                     DailyTimeRecord::create($dtr);
 
-                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett)->with('intern',$intern)->with('employee',$employee);
+                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett);
 
                     // am late
 
@@ -137,7 +140,7 @@ class DailyTimeRecordController extends Controller
 
                     DailyTimeRecord::create($dtr);
 
-                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett)->with('intern',$intern)->with('employee',$employee);
+                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett);
 
                     //morning half day
 
@@ -158,7 +161,7 @@ class DailyTimeRecordController extends Controller
 
                     DailyTimeRecord::create($dtr);
 
-                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett)->with('intern',$intern)->with('employee',$employee);
+                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett);
 
                     // pm late
 
@@ -180,7 +183,7 @@ class DailyTimeRecordController extends Controller
 
                     DailyTimeRecord::create($dtr);
 
-                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett)->with('intern',$intern)->with('employee',$employee);
+                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett);
 
                     // ot in
 
@@ -201,22 +204,23 @@ class DailyTimeRecordController extends Controller
 
                     DailyTimeRecord::create($dtr);
 
-                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett)->with('intern',$intern)->with('employee',$employee);
+                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett);
 
                 }
 
-            }else{
-
-                    // error handling    message                    subject
-                    Alert::warning('you have already logged in', 'Attention')->autoclose(1500);
-                    return back();
             }
 
-        }else if(count($val_emp) > 0){
+        }else if(EmployeeInfo::select('emp_id')->where(['emp_num' => $id_number, 'emp_password' => $password])->exists()){
 
             // morning
 
-           if($check_date === null){
+           if($check_date == true){
+
+                // error handling    message                    subject
+                Alert::warning('you have already logged in', 'Warning')->autoclose(1500);
+                return back();
+
+           }else{
 
                 if($currentTime <= $am_in){
 
@@ -235,7 +239,7 @@ class DailyTimeRecordController extends Controller
 
                     DailyTimeRecord::create($dtr);
 
-                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett)->with('intern',$intern)->with('employee',$employee);
+                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett);
 
                     // am late
 
@@ -257,7 +261,7 @@ class DailyTimeRecordController extends Controller
 
                     DailyTimeRecord::create($dtr);
 
-                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett)->with('intern',$intern)->with('employee',$employee);
+                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett);
 
                     //morning half day
 
@@ -278,7 +282,7 @@ class DailyTimeRecordController extends Controller
 
                     DailyTimeRecord::create($dtr);
 
-                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett)->with('intern',$intern)->with('employee',$employee);
+                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett);
 
                     // pm late
 
@@ -300,7 +304,7 @@ class DailyTimeRecordController extends Controller
 
                     DailyTimeRecord::create($dtr);
 
-                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett)->with('intern',$intern)->with('employee',$employee);
+                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$employee)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett);
 
                     // ot in
 
@@ -321,17 +325,11 @@ class DailyTimeRecordController extends Controller
 
                     DailyTimeRecord::create($dtr);
 
-                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$emp)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett)->with('intern',$intern)->with('employee',$employee);
+                    return view('client.login')->with('validate_intern_number',$intern)->with('validate_emp_num',$emp)->with('current_time',$currentTime)->with('current_date',$current_date)->with('current_daytitle',$current_daytitle)->with('sett',$sett);
 
                 }// end elseif for employee
 
                 // // //end r0
-
-           }else{
-
-                // error handling    message                    subject
-                Alert::warning('you have already logged in', 'Attention')->autoclose(1500);
-                return back();
 
            }
 
@@ -384,36 +382,14 @@ class DailyTimeRecordController extends Controller
 
         $find_id = DailyTimeRecord::select('employee_number')->where('employee_number', $id_number)->first();
 
-        $val_int = DB::table('intern_infos')->select('intern_image')->where(['intern_num' => $id_number, 'intern_password' => $password])->get();
+        $val_int = InternInfo::where(['intern_num' => $id_number, 'intern_password' => $password])->exists();
 
-        $val_emp = DB::table('employee_infos')->select('emp_image')->where(['emp_num' => $id_number, 'emp_password' => $password])->get();
+        $val_emp = EmployeeInfo::where(['emp_num' => $id_number, 'emp_password' => $password])->exists();
 
 
-        if(count($val_int) > 0){
+        if($val_int == true){
 
-            if(count($check_data) > 0){
-
-                $check = array(
-
-                    'logout' => $currentTime,
-                    'status' => 'LOGGED OUT'
-                );
-
-                DailyTimeRecord::where(['employee_number' => $id_number, 'Date' => $current_date])->update($check);
-
-                return view('client.logout')->with('validate_intern_number',$validate_intern_number)->with('validate_emp_num',$validate_emp_num)->with('current_time',$currentTime)->with('current_date',$current_date);
-
-            }else{
-
-                // error handling    message                    subject
-                Alert::warning('you need to log in first', 'Attention')->autoclose(1500);
-                return back();
-
-            }
-
-        }else if(count($val_emp) > 0){
-
-            if(count($check_data) > 0){
+            
 
                 $check = array(
 
@@ -425,14 +401,21 @@ class DailyTimeRecordController extends Controller
 
                 return view('client.logout')->with('validate_intern_number',$validate_intern_number)->with('validate_emp_num',$validate_emp_num)->with('current_time',$currentTime)->with('current_date',$current_date);
 
-                
-            }else{
+        }else if($val_emp == true){
+
+                $check = array(
+
+                    'logout' => $currentTime,
+                    'status' => 'LOGGED OUT'
+                );
+
+                DailyTimeRecord::where(['employee_number' => $id_number, 'Date' => $current_date])->update($check);
+
+                return view('client.logout')->with('validate_intern_number',$validate_intern_number)->with('validate_emp_num',$validate_emp_num)->with('current_time',$currentTime)->with('current_date',$current_date);
 
                 // error handling    message                    subject
                 Alert::warning('you need to log in first', 'Attention')->autoclose(1500);
                 return back();
-
-            }
 
         }else{
 

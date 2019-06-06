@@ -97,6 +97,15 @@ Route::prefix('admin')->group(function(){
 	Route::get('back', 'AddEmpController@back')->name('back');
 	Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
+		//view
+	Route::get('employee-record', 'ViewRecordController@employeeRecord')->name('view-employee-record');
+
+	Route::get('intern-record', 'ViewRecordController@internRecord')->name('view-int-record');
+
+	// daily attendance
+
+	Route::get('daily-attendance','ViewRecordController@dailyAttendance')->name('daily-attendance');
+
 });
 
 Route::get('/', 'DailyTimeRecordController@loginForm')->name('welcome');
@@ -107,149 +116,3 @@ Route::get('greetingPage','DailyTimeRecordController@greetingPage')->name('greet
 Route::post('dtr','DailyTimeRecordController@welcomePage')->name('client-login');
 
 Route::post('out', 'DailyTimeRecordController@outPage')->name('client-logout');
-
-// SAMPLE
-Route::get('sample', function(){
-
-	$time = Carbon::now();
-
-	$c = $time->toTimeString();
-
-	$am_in = $time->setTime(9, 00, 00)->toTimeString();
-
-    $pm_out = $time->setTime(18,00,00)->toTimeString();
-
-    $am_out = $time->setTime(11, 59, 59)->toTimeString();
-
-	$pm_in = $time->setTime(12,00,00)->toTimeString();
-	
-	$pm_late = $time->setTime(14,01,00)->toTimeString();
-
-	// $current_time = $time->format('G:i');
-
-    $currentDate = $time->toFormattedDateString();
-
-    $diff = $time->diffForHumans();
-
-	$emp = EmployeeInfo::count();
-	
-	$int = InternInfo::count();
-	
-	$cd = $time->format('Y-m-d');
-
-
-    $get = InternInfo::select('intern_num')->get();
-
-    $get_date = DailyTimeRecord::select('Date')->where('Date', '!=', $currentDate)->get();
-
-    $dtr = DailyTimeRecord::count();
-
-    $stat = DailyTimeRecord::select('status','employee_number','fullname','Date')->where('Date', $currentDate)->get();
-
-	$emp = 'EMPLOYEE';
-
-	$int = 'INTERN';
-
-	$employee = DailyTimeRecord::select('position')->where('position','=', $emp)->count();
-
-	$intern = DailyTimeRecord::select('position')->where('position','=', $int)->count();
-
-	$present = DailyTimeRecord::select('Date')->where('Date', $cd)->count();
-
-	$check_user = DailyTimeRecord::select('employee_number','Date')->where('Date',$currentDate)->first();
-
-	$get_present = DailyTimeRecord::select('position')->where('Date', $currentDate)->count();
-
-	$get = DailyTimeRecord::all();
-	
-	$usr = User::all();
-
-	$in = InternInfo::all();
-
-	$ar1 = [1,2];
-
-	$ar2 = [3,4];
-
-	// $result = $ar1[1] * $ar2[0];
-
-	// return $result;
-
-	$a = 'abc';
-
-	$res = strlen($a);
-
-	// return 'you have' .  ' ' . $res . ' ' . 'letters in your variable';
-
-	$s = DailyTimeRecord::select('fullname')->where('fullname','LIKE','w%')->get();
-
-	return $s;
-	
-	// if($get !== null){
-
-	// 	return 'the field is not empty';
-
-	// }else{
-
-	// 	return 'the field is empty';
-	// }
-
-	// return $employee;
-
-	// return $present;
-
-	// return $intern;
-
-	return $get;
-
-	// return $get_present;
-
-	// return $in;
-
-	// return $c;
-	
-	// return $usr;
-    
-
-    // if($stat === null){
-
-    // 	return 'no date matches';
-
-    // }else{
-
-    // 	return $stat;
-    // }
-
-   // $check = DailyTimeRecord::all();
-
-   // return $c;
-
-   
-    // return $get;
-
-    // return $emp;
-
-    // return '<br>';
-
-    // return $int;
-
-    // return '<br>';
-
-    // return $count;
-
-    // return $currentDate;
-
-    // dd($currentDate);
-
-    // if($currentDate != $get_date){
-
-    // 	return 'true';
-
-    // }else{
-
-    // 	return 'false';
-
-    // }
-
-    // return $get_date;
-
-});

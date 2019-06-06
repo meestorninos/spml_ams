@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="card2  col-md-12 col-sm-12 col-xs-12">
-                @if(!empty($employee))
+                @if(!empty($validate_emp_num[0]))
                 <div class="left-info col-md-5 col-sm-5 col-xs-5 left-background">
                     <p><h1 class="day2"> {{$current_daytitle}}</h1><br><h2 class="date2">{{$current_date}}</h2>
                         <h6 class="time2">{{$current_time}}</h6>
@@ -36,7 +36,7 @@
                         </p>
                     </div>
                 @endif
-                @if(!empty($intern))
+                @if(!empty($validate_intern_number[0]))
                 <div class="left-info col-md-5 col-sm-5 col-xs-5 left-background">
                     <p><h3 class="day2"> {{$current_daytitle}}</h3><h2 class="date2">{{$current_date}}</h2>
                         <h6 class="time2">{{$current_time}}</h6>

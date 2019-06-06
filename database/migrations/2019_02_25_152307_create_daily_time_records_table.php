@@ -24,7 +24,6 @@ class CreateDailyTimeRecordsTable extends Migration
             $table->string('pm_late')->default('0');
             $table->string('halfday')->default('0');
             $table->string('ot_in')->default('0');
-            $table->string('ot_out')->default('0');
             $table->string('undertime')->default('0');
             $table->string('late')->default('0');
             $table->string('logout')->default('0');

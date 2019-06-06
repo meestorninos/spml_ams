@@ -77,11 +77,11 @@
 
                         @if(count($showDept) > 0)
 
-                        @foreach($showDept as $key)
+                            @foreach($showDept as $key)
 
-                            <option name="department" id="department" class="form-control" value="{{$key->department}}">{{$key->department}}</option>
+                                <option name="department" id="department" class="form-control" value="{{$key->department}}">{{$key->department}}</option>
 
-                        @endforeach
+                            @endforeach
 
                         @endif
 

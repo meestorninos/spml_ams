@@ -11,4 +11,14 @@ class Department extends Model
     protected $fillable = [
         'department'
     ];
+
+    public function departmentEmp(){
+
+    	return $this->hasMany('App\EmployeeInfo','emp_num');
+    }
+
+    public function departmentInt(){
+
+    	return $this->hasMany('App\InternInfo','intern_num');
+    }
 }

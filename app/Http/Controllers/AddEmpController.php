@@ -68,7 +68,7 @@ class AddEmpController extends Controller
                 'department' => $request->others
             ]);
 
-            return redirect('admin/employeeactive')->with('employee', $employee,'dept', $dept);
+            return '<script>alert("Data Successfully Added")</script>' . redirect('admin/employeeactive')->with('employee', $employee,'dept', $dept);
 
         }else{
 
@@ -93,9 +93,9 @@ class AddEmpController extends Controller
         $ei = "EMPLOYEE";
         $start = $request->input('start');
         $end = $request->input('end');
-        $check_start = Carbon::parse($start)->toFormattedDateString();
-        $check_end = Carbon::parse($end)->toFormattedDateString();
-        $check_daterange = DB::table('daily_time_records')->select('fullname','employee_number','position','am_in','am_late','pm_late','ot_in','ot_out','Date','late','undertime','total')->where('position',$ei)->whereBetween('Date',[$check_start,$check_end])->get();
+        $check_start = Carbon::parse($start)->format('Y-m-d');
+        $check_end = Carbon::parse($end)->format('Y-m-d');
+        $check_daterange = DB::table('daily_time_records')->select('fullname','employee_number','position','am_in','am_late','pm_late','ot_in','Date','late','undertime','total')->where('position',$ei)->whereBetween('Date',[$check_start,$check_end])->get();
         $time = Carbon::now();
         $current_time2 = $time->toTimeString();
         $current_date3 = $time->toFormattedDateString();

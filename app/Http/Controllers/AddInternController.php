@@ -69,8 +69,7 @@ class AddInternController extends Controller
                 'department' => $request->others
             ]);
 
-
-             return redirect('admin/internactive')->with('intern', $intern, 'dept', $dept);
+            return '<script>alert("Data Successfully Added")</script>' . redirect('admin/internactive')->with('intern', $intern, 'dept', $dept);
 
         }else{
 

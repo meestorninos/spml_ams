@@ -85,18 +85,18 @@
                         </li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-accounts"></i> <span> Accounts </span> <span class="menu-arrow"></span> </a>
-                            <ul class="list-unstyled">
-                                <li><a href="{{route('admin/employeeactive')}}">Employee</a></li>
-                                <li><a href="{{route('admin/internactive')}}">Interns</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-archive"></i> <span> View Record </span> <span class="menu-arrow"></span> </a>
                             <ul class="list-unstyled">
                                 <li><a href="{{route('view-employee-record')}}">Employee</a></li>
                                 <li><a href="{{route('view-int-record')}}">Interns</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-accounts"></i> <span> Accounts </span> <span class="menu-arrow"></span> </a>
+                            <ul class="list-unstyled">
+                                <li><a href="{{route('admin/employeeactive')}}">Employee</a></li>
+                                <li><a href="{{route('admin/internactive')}}">Interns</a></li>
                             </ul>
                         </li>
 
@@ -138,10 +138,10 @@
               <!-- Page-Title -->
               <div class="row">
                 <div class="col-lg-6">
-                    <h4 class="page-title">Dashboard</h4>
+                    <h4 class="page-title">Daily Attendance</h4>
                 </div>
                 <div class="col-lg-6">
-                    <h4 class="page-title" style="margin-left: 250px; color: lightblue;">{{$date}}</h4>
+                    
                 </div>
             </div>
 
@@ -150,143 +150,46 @@
             <!-- end row -->
 
             <div class="row">
-                <div class="col-xl-12 col-md-12">
-                    <div class="text-center card" style="min-height: 377px;">
-                        <div class="card-body">
-                            <h3>Daily Attendance</h3>
-                            <div class="row">
-                                <div class="col-xl-6 col-md-6">
-                                    <div class="card widget-user">
-                                        <div class="card-body text-center">
-                                            <h2 class="text-custom" data-plugin="counterup">{{$int_present}}</h2>
-                                            <h5>Intern</h5>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-6 col-md-6">
-                                    <div class="card widget-user">
-                                        <div class="card-body text-center">
-                                            <h2 class="text-custom" data-plugin="counterup">{{$emp_present}}</h2>
-                                            <h5>Employee</h5>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-12 col-md-12">
-                                    <div class="card widget-user">
-                                        <div class="card-body text-center">
-                                            <h2 class="text-custom" data-plugin="counterup">{{$get_present}}</h2>
-                                            <h5>Present</h5>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>  
-
-                        </div>
-
-                    </div>
-                </div>
-
+                
             </div>
 
             <div class="row">
                 <div class="col-xl-12 col-md-12">
                     <div class="text-center card" style="min-height: 377px;">
                         <div class="card-body">
-                            <h3>Active Accounts</h3>
                             <div class="row">
-                                <div class="col-xl-6 col-md-6">
-                                    <div class="card widget-user">
-                                        <div class="card-body text-center">
-                                            <h2 class="text-custom" data-plugin="counterup">{{$employee}}</h2>
-                                            <h5>Employee</h5>
-                                        </div>
-                                    </div>
-                                </div>
+                                <table width="100%">
+                                    <th>Fullname</th>
+                                    <th>Employee Number</th>
+                                    <th>Position</th>
+                                    <th>Status</th>
+                                    <th>AM IN</th>
+                                    <th>AM LATE</th>
+                                    <th>PM LATE</th>
+                                    <th>HALFDAY</th>
+                                    <th>OT IN</th>
+                                    <th>UNDERTIME</th>
+                                    <th>LATE</th>
+                                    <th>LOGOUT</th>
 
-                                <div class="col-xl-6 col-md-6">
-                                    <div class="card widget-user">
-                                        <div class="card-body text-center">
-                                            <h2 class="text-custom" data-plugin="counterup">{{$intern}}</h2>
-                                            <h5>Interns</h5>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="col-xl-12 col-md-12">
-                                    <div class="card widget-user">
-                                        <div class="card-body text-center">
-                                            <h2 class="text-custom" data-plugin="counterup">{{$result}}</h2>
-                                            <h5>Total of Active Accounts</h5>
-                                        </div>
-                                    </div>
-                                </div>
+                                    
 
+                                </table>
                             </div>  
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
-
-
-            <div class="row">
-                <div class="col-xl-12 col-md-12">
-                    <div class="text-center card" style="min-height: 377px;">
-                        <div class="card-body">
-                            <h3>Inactive Accounts</h3>
-                            <div class="row">
-                                <div class="col-xl-6 col-md-6">
-                                    <div class="card widget-user">
-                                        <div class="card-body text-center">
-                                            <h2 class="text-custom" data-plugin="counterup">0</h2>
-                                            <h5>Employee</h5>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-6 col-md-6">
-                                    <div class="card widget-user">
-                                        <div class="card-body text-center">
-                                            <h2 class="text-custom" data-plugin="counterup">0</h2>
-                                            <h5>Interns</h5>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-12 col-md-12">
-                                    <div class="card widget-user">
-                                        <div class="card-body text-center">
-                                            <h2 class="text-custom" data-plugin="counterup">0</h2>
-                                            <h5>Total of Inactive Accounts</h5>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>  
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <!-- end row -->
-
-
         </div>
         <!-- end row -->
     </div> <!-- container-fluid -->
 
 </div> <!-- content -->
 
-<footer class="footer">
-                2019 © <span class="d-none d-sm-inline-block">Shoppetown</span>
-            </footer>
+    <footer class="footer">
+        2019 © <span class="d-none d-sm-inline-block">Shoppetown</span>
+    </footer>
 
 </div>
 <!-- ============================================================== -->

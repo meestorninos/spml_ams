@@ -28,6 +28,7 @@ class CreateInternInfosTable extends Migration
             $table->string('intern_image');
             $table->string('position')->default('intern');
             $table->string('status')->default('0');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

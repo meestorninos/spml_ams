@@ -25,6 +25,7 @@ class CreateEmployeeInfosTable extends Migration
             $table->string('emp_image');
             $table->string('position')->default('Employee');
             $table->string('status')->default('0');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

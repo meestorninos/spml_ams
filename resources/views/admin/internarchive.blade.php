@@ -171,6 +171,15 @@
                                 <li><a href="{{route('admin/internactive')}}">Interns</a></li>
                             </ul>
                         </li>
+
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-archive"></i> <span> View Record </span> <span class="menu-arrow"></span> </a>
+                            <ul class="list-unstyled">
+                                <li><a href="{{route('view-employee-record')}}">Employee</a></li>
+                                <li><a href="{{route('view-int-record')}}">Interns</a></li>
+                            </ul>
+                        </li>
+                        
                         <!---
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-accounts"></i> <span> DTR </span> <span class="menu-arrow"></span> </a>

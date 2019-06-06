@@ -64,19 +64,22 @@
                     <td rowspan="1" colspan="2">IN</td>
                     <td rowspan="1" colspan="2">OUT</td>
                 </tr>
-            @foreach($check_daterange as $key)
-                <tr>
-                    <td colspan="2">{{$key->Date}}</td>
-                    <td colspan="2">{{$key->am_in}}</td>
-                    <td colspan="2">{{$key->am_late}}</td>
-                    <td colspan="2">{{$key->pm_late}}</td>
-                    <td colspan="2">{{$key->late}}</td>
-                    <td colspan="2">{{$key->ot_in}}</td>
-                    <td colspan="2">{{$key->ot_out}}</td>
-                    <td colspan="2">{{$key->undertime}}</td>
-                    <td colspan="2">{{$key->total}}</td>
-                </tr>
-            @endforeach
+
+            @if(count($check_daterange) > 0)    
+                @foreach($check_daterange as $key)
+                    <tr>
+                        <td colspan="2">{{$key->Date}}</td>
+                        <td colspan="2">{{$key->am_in}}</td>
+                        <td colspan="2">{{$key->am_late}}</td>
+                        <td colspan="2">{{$key->pm_late}}</td>
+                        <td colspan="2">{{$key->late}}</td>
+                        <td colspan="2">{{$key->ot_in}}</td>
+                        <td colspan="2">{{$key->logout}}</td>
+                        <td colspan="2">{{$key->undertime}}</td>
+                        <td colspan="2">{{$key->total}}</td>
+                    </tr>
+                @endforeach
+            @endif
             </tbody>
         </table>
         <br>
