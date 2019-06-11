@@ -271,15 +271,16 @@
                                                     <tr>
                                                         <td style=" vertical-align: middle;"><a style="text-transform: uppercase;">{{$key->intern_lastname}}, </a>{{$key->intern_firstname}} <a class="mid">{{$key->intern_middlename}}</a></td>
                                                         <td style=" vertical-align: middle;">{{$key->intern_department}}</td>
-                                                        <td style=" vertical-align: middle;">SO01{{$key->intern_num}}</td>
+                                                        <td style=" vertical-align: middle;">{{$key->intern_num}}</td>
                                                         
-                                                        <td><center>
+                                                        <td>
+                                                        <center>
                                                             
                                                             <a href="{{route('intern-dtr')}}"><span class="m-l-2"><i class="zmdi zmdi-eye action-icons" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="View"></i></span></a>
 
                                                             <a href="{{route('edit-intern-dtr')}}"><span class="m-l-2"><i class="zmdi zmdi-edit action-icons"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></i></span></a>
 
-                                                            <a href="#" onclick="archive()"><span class="m-l-2"><i class="zmdi zmdi-archive action-icons" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Archive"></i></span>
+                                                            <a href="{{route('intern-softDelete')}}" onclick="archive()"><span class="m-l-2"><i class="zmdi zmdi-archive action-icons" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Archive"></i></span>
                                                         </center>
                                                        </td>
                                                         

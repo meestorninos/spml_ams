@@ -233,7 +233,9 @@
                         <div class="col-sm-12">
                             <div class="input-daterange input-group" id="date-range">
                                 <input type="text" class="form-control" name="start" />
+
                                 <span class="input-group-text bg-primary b-0 text-white">to</span>
+                                
                                 <input type="text" class="form-control" name="end" />
                             </div>
                             <br>

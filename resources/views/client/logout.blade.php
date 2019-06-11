@@ -27,7 +27,7 @@
                         <img src="{{$validate_emp_num[0]->emp_image}}" class="my-picture">
                         <p><h2><b class="surname">{{$validate_emp_num[0]->emp_lastname}},</b> <b>{{$validate_emp_num[0]->emp_firstname}}</b></h2>
                             <h4>{{$validate_emp_num[0]->emp_department}}</h4>
-                            <h4>SE0{{$validate_emp_num[0]->emp_num}}</h4>
+                            <h4>{{$validate_emp_num[0]->emp_num}}</h4>
                             <p class="redirect-timer">
                                 Your account will be Log out in <span id="countdown">10</span> seconds <br> or <br>Press Enter to automatically redirect
                             </p>
@@ -42,7 +42,7 @@
                         <img src="{{$validate_intern_number[0]->intern_image}}" class="my-picture">
                         <p><h2><b class="surname">{{$validate_intern_number[0]->intern_lastname}},</b> <b>{{$validate_intern_number[0]->intern_firstname}}</b></h2>
                             <h4>{{$validate_intern_number[0]->intern_department}}</h4>
-                            <h4>SO0{{$validate_intern_number[0]->intern_num}}</h4>
+                            <h4>{{$validate_intern_number[0]->intern_num}}</h4>
                             <p class="redirect-timer">
                                 Your account will be Log out in <span id="countdown">10</span> seconds <br> or <br>Press Enter to automatically redirect
                             </p>

@@ -15,6 +15,8 @@ use App\Exports\DTRExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
+use PDF;
+
 use Alert;
 
 class AddInternController extends Controller
@@ -24,6 +26,14 @@ class AddInternController extends Controller
         return Validator::make($request, [
             'image' => 'image|mimes:jpeg,png,jpg,svg',
         ]);
+    }
+
+    public function intern_pdf(){
+
+        $check_daterange = DailyTimeRecord::all();
+
+            return view('admin.intern-dtr.pdf')->with('check_daterange', $check_daterange);
+
     }
 
     public function index()
@@ -53,7 +63,7 @@ class AddInternController extends Controller
              $intern = InternInfo::create([
 
                 'intern_firstname' => $request->first_name,
-                'intern_num' => $request->intern_number,
+                'intern_num' => 'SO0' . $request->intern_number,
                 'intern_lastname' => $request->last_name,
                 'intern_middlename' => $request->middle_name,
                 'intern_nickname' => $request->nick_name,
@@ -100,21 +110,24 @@ class AddInternController extends Controller
     }
     public function checkinterndtr(Request $request)
     {   
-        $oi = "INTERN";
-        $ei = "EMPLOYEE";
+        $intern = "INTERN";
+        $employee= "EMPLOYEE";
+
         $start = $request->input('start');
         $end = $request->input('end');
+
         $che_st = Carbon::parse($start)->format('Y-m-d');
         $che_en = Carbon::parse($end)->format('Y-m-d');
-        $check_daterange = DB::table('daily_time_records')->select('fullname','employee_number','position','am_in','ot_in','ot_out','Date','late','undertime','total')->where('position',$oi)->whereBetween('Date',[$che_st,$che_en])->get()->groupBy('Date')->unique('fullname');
-        $check_daterange2 = DB::table('daily_time_records')->select('fullname','employee_number','position','am_in','ot_in','ot_out','Date','late','undertime','total')->where('position',$oi)->whereBetween('Date',[$che_st,$che_en])->get();
+        $check_daterange = DB::table('daily_time_records')->select('fullname','employee_number','position','am_in','ot_in','logout','Date','halfday','late','undertime')->where('position',$intern)->whereBetween('Date',[$che_st,$che_en])->get()->groupBy('Date')->unique('fullname');
+        $check_daterange2 = DB::table('daily_time_records')->select('fullname','employee_number','position','am_in','ot_in','logout','Date','late','halfday','undertime')->where('position',$intern)->whereBetween('Date',[$che_st,$che_en])->get();
         $time = Carbon::now();
         $current_time2 = $time->toTimeString();
         $current_date3 = $time->toFormattedDateString();
         $am_in = $time->setTime(9, 00)->toTimeString();
         $halfday = $time->setTime(13,00)->toTimeString();
         $carbon = new Carbon;
-        return view('admin.intern-dtr.dtrview',compact('check_daterange','check_daterange2'));
+
+        return view('admin.intern-dtr.dtrview',compact('check_daterange'));
     }
 
     public function showInfo($id)

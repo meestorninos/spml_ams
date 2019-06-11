@@ -16,6 +16,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Alert;
 
+use PDF;
+
 
 
 class AddEmpController extends Controller
@@ -53,7 +55,7 @@ class AddEmpController extends Controller
             $employee = EmployeeInfo::create([
 
                 'emp_firstname' => $request->first_name,
-                'emp_num' => $request->employee_num,
+                'emp_num' => 'SE0' . $request->employee_num,
                 'emp_lastname' => $request->last_name,
                 'emp_middlename' => $request->middle_name,
                 'emp_nickname' => $request->nick_name,
@@ -95,7 +97,7 @@ class AddEmpController extends Controller
         $end = $request->input('end');
         $check_start = Carbon::parse($start)->format('Y-m-d');
         $check_end = Carbon::parse($end)->format('Y-m-d');
-        $check_daterange = DB::table('daily_time_records')->select('fullname','employee_number','position','am_in','am_late','pm_late','ot_in','Date','late','undertime','total')->where('position',$ei)->whereBetween('Date',[$check_start,$check_end])->get();
+        $check_daterange = DB::table('daily_time_records')->select('fullname','employee_number','position','am_in','ot_in','Date','late','undertime','halfday','logout')->where('position',$ei)->whereBetween('Date',[$check_start,$check_end])->get();
         $time = Carbon::now();
         $current_time2 = $time->toTimeString();
         $current_date3 = $time->toFormattedDateString();

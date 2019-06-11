@@ -23,6 +23,8 @@ class InternInfo extends Model
 
     protected $primaryKey = 'id';
 
+    protected $softDelete = true;
+
     public function dtr_intern()
     {
         return $this->belongsTo('App\DailyTimeRecord','intern_num');

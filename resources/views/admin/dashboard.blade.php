@@ -149,7 +149,7 @@
 
             <!-- end row -->
 
-            <div class="row">
+            <div class="row" id="daily">
                 <div class="col-xl-12 col-md-12">
                     <div class="text-center card" style="min-height: 377px;">
                         <div class="card-body">
@@ -296,6 +296,7 @@
 
 </div>
 <!-- END wrapper -->
+
 
 
 <script>

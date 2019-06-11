@@ -13,12 +13,40 @@
 
     <link href="{{asset('backend/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('backend/css/icons.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('backend/css/style.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('backend/css/style.css')}}" rel="stylesheet" type="text/css"  />
     <link rel="stylesheet" type="text/css" href="{{asset('backend/zlib/sweetalert/node_modules/sweetalert2/dist/sweetalert2.min.css')}}">
 
     <script src="{{asset('backend/js/modernizr.min.js')}}"></script>
 
 </head>
+
+<style>
+    @media print{
+
+        table {
+
+            border: solid #000 1px !important;
+            border-width: 1px 0 0 1px !important;
+            
+        }
+
+        th, td{
+
+            border: solid #000 1px !important;
+            border-width: 0 1px 1px 0 !important;
+        }
+
+        @page{
+            size:landscape;
+        }
+
+    }
+</style>
+<style type='text/css' media='print'>
+    @page{
+        size: landscape;
+    }
+</style>
 
 <body class="fixed-left">
 
@@ -139,9 +167,10 @@
               <div class="row">
                 <div class="col-lg-6">
                     <h4 class="page-title">Employee's Record</h4>
+                    
                 </div>
                 <div class="col-lg-6">
-                    
+                
                 </div>
             </div>
 
@@ -153,55 +182,56 @@
                 
             </div>
 
-            <div class="row">
+            <div class="row print" id="print">
                 <div class="col-xl-12 col-md-12">
                     <div class="text-center card" style="min-height: 377px;">
                         <div class="card-body">
                             <div class="row">
-                                <table width="100%" class="table-striped" cellpadding="2px;">
-                                <th>Fullname</th>
+                            <h4 class="page-title" align="center">Employee's Record</h4>
+                                <table width="100%" class="table-bordered" cellpadding="2px;" style="text-align:center;">
+                                    <th>Date</th>
+                                    <th>Fullname</th>
                                     <th>Employee Number</th>
                                     <th>Position</th>
-                                    <th>Status</th>
                                     <th>AM IN</th>
-                                    <th>AM LATE</th>
-                                    <th>PM LATE</th>
                                     <th>HALFDAY</th>
                                     <th>OT IN</th>
                                     <th>UNDERTIME</th>
                                     <th>LATE</th>
                                     <th>LOGOUT</th>
-
-
-                                    
+                                    <th>Status</th>
+                                          
                                     @foreach($employee_record as $key)
 
                                         @if($key['position'] === 'Employee')
                                             <tr>
+                                                <td>{{$key->Date}}</td>
                                                 <td>{{$key->fullname}}</td>
                                                 <td>{{$key->employee_number}}</td>
                                                 <td>{{$key->position}}</td>
-                                                <td>{{$key->status}}</td>
                                                 <td>{{$key->am_in}}</td>
-                                                <td>{{$key->am_late}}</td>
-                                                <td>{{$key->pm_late}}</td>
                                                 <td>{{$key->halfday}}</td>
                                                 <td>{{$key->ot_in}}</td>
                                                 <td>{{$key->undertime}}</td>
                                                 <td>{{$key->late}}</td>
                                                 <td>{{$key->logout}}</td>
+                                                <td>{{$key->status}}</td>
                                             </tr>
                                         @endif
 
                                     @endforeach
 
-                                    
+                                    <hr>
                                 </table>
+                                
                             </div>  
                         </div>
                     </div>
                 </div>
             </div>
+            <form>
+                <input class="btn btn-primary"type="button" value='print' onclick="print()">
+            </form>
         </div>
         <!-- end row -->
     </div> <!-- container-fluid -->
@@ -225,6 +255,23 @@
 <script>
     var resizefunc = [];
 </script>
+
+<script>
+    function print(){
+
+        var print_div = document.getElementById('print');
+
+        var print_area = window.open();
+        print_area.document.write(print_div.innerHTML);
+
+        print_area.document.close();
+        print_area.focus();
+        print_area.print();
+        print_area.close();
+    }
+</script>
+
+
 
 <!-- jQuery  -->
 <script src="{{asset('backend/js/jquery.min.js')}}"></script>

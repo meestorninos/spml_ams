@@ -75,6 +75,7 @@ Route::prefix('admin')->group(function(){
 	Route::get('internarchive', 'IntArcController@index')->name('admin/internarchive');
 
 	Route::get('internactive', 'IntActController@index')->name('admin/internactive');
+	Route::post('internactive', 'IntArcController@softDelete')->name('intern-softDelete');
 
 	// create Intern
 	Route::get('addIntern', 'AddInternController@index')->name('admin/intern');
@@ -95,6 +96,7 @@ Route::prefix('admin')->group(function(){
 	Route::post('checkempdtr','AddEmpController@checkempdtr')->name('checkempdtr');
 
 	Route::get('back', 'AddEmpController@back')->name('back');
+
 	Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 		//view
@@ -116,3 +118,14 @@ Route::get('greetingPage','DailyTimeRecordController@greetingPage')->name('greet
 Route::post('dtr','DailyTimeRecordController@welcomePage')->name('client-login');
 
 Route::post('out', 'DailyTimeRecordController@outPage')->name('client-logout');
+
+Route::get('sample', function(){
+
+	$time = Carbon::now();
+
+	$currentDate = $time->format('Y-m-d');
+
+	$get = DailyTimeRecord::select('employee_number','am_in','undertime','ot_in','halfday','logout','late')->where('Date', $currentDate)->whereNotNull('halfday')->get();
+
+	return $get;
+});

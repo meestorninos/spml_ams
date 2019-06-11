@@ -171,10 +171,6 @@
                                     <th>UNDERTIME</th>
                                     <th>LATE</th>
                                     <th>LOGOUT</th>
-
-
-                                    
-
                                 </table>
                             </div>  
                         </div>

@@ -102,7 +102,7 @@
                 <br>
                 <div>
                     <label>&nbsp; ID Number</label><br>
-                    <input type="text" name="id_number" disabled="" class="employee-or-intern" id="unique-id-num-login" value="SO01"><input type="text" name="intern_number" class="rounded-id-input" id="id-number-login" required>
+                    <input type="text" name="id_number" disabled="" class="employee-or-intern" id="unique-id-num-login" value="SO0"><input type="text" name="intern_number" class="rounded-id-input" id="id-number-login" required>
                 </div>
                 <br>
                 <div class="col-md-12">

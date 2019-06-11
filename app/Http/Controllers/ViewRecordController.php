@@ -6,6 +6,7 @@ use App\DailyTimeRecord;
 use App\EmployeeInfo;
 use App\InternInfo;
 use App\Department;
+use DB;
 
 use Carbon\Carbon;
 
@@ -36,8 +37,6 @@ class ViewRecordController extends Controller
         $error;
 
         $current_date  = $carbon->format('Y-m-d');
-
-        // $daily_present = DailyTimeRecord::where('Date', $current_date)->get();
 
         $daily_present = DailyTimeRecord::all();
         

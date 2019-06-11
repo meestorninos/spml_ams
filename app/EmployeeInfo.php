@@ -21,6 +21,8 @@ class EmployeeInfo extends Model
     ];
     protected $table = 'employee_infos';
 
+    protected $softDelete = true;
+
     protected $primaryKey = 'id';
 
     public function dtr_emp()

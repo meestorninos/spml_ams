@@ -22,7 +22,7 @@ class DailyTimeRecord extends Model
     }
 
     protected $fillable = [
-        'fullname', 'employee_number','status','position', 'am_in','am_late','logout','pm_late','Date','late','undertime','total','ot_in',
+        'fullname', 'employee_number','status','position', 'am_in','logout','Date','late','undertime','ot_in','halfday',
     ];
 
 }

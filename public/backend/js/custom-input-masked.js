@@ -1,6 +1,6 @@
 jQuery(function($){
-	$("#id-number-login").mask("9-999");
+	$("#id-number-login").mask("99-999");
 });
 jQuery(function($){
-	$("#id-number-logout").mask("9-999");
+	$("#id-number-logout").mask("99-999");
 });

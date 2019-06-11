@@ -87,7 +87,9 @@
 
                         
                         <option name="department" id="department" class="form-control" value="others">Others</option>
-                    </select> 
+
+                    </select>
+                     
                     <div> 
                         <input type="text" name="others" class="form-control others" id="others" placeholder="Please Specify" style="display: none; margin-top: 30px">
                     </div>
@@ -97,7 +99,7 @@
                 <br>
                 <div>
                     <label>&nbsp; ID Number</label><br>
-                    <input type="text" name="id_number" disabled="" class="employee-or-intern" id="unique-id-num-login" value="SE01"><input type="text" name="employee_num" class="rounded-id-input" id="id-number-login" required>
+                    <input type="text" name="id_number" disabled="" class="employee-or-intern" id="unique-id-num-login" value="SE0"><input type="text" name="employee_num" class="rounded-id-input" id="id-number-login" required>
                 </div>
                 <br>
                 <div class="col-md-12">

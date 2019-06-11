@@ -20,14 +20,11 @@ class CreateDailyTimeRecordsTable extends Migration
             $table->string('employee_number')->default('0');
             $table->string('position')->default('0');
             $table->string('am_in')->default('0');
-            $table->string('am_late')->default('0');
-            $table->string('pm_late')->default('0');
             $table->string('halfday')->default('0');
             $table->string('ot_in')->default('0');
             $table->string('undertime')->default('0');
             $table->string('late')->default('0');
             $table->string('logout')->default('0');
-            $table->string('total')->default('0');
             $table->string('status')->default('0');
             $table->timestamps();
         });

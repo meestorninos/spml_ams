@@ -32,23 +32,21 @@
         <a href="index.html" class="logo" style="margin-top: 50%;"><span class="text-inverse">Time<span class="text-custom"> Record</span></span></a>
     </div>
     <br><br>
-    <div class="col-md-12 col-sm-12 col-xs-12" id=" print">
+    <div class="col-md-12 col-sm-12 col-xs-12">
         <table class="table table-bordered" style="text-align: center; vertical-align: middle;">
             <thead>
-                @foreach($check_daterange as $pl)
                 <tr>
-                    <th colspan="22">{{$pl[0]->fullname}}</th>
+                    <th colspan="30"><H4>{{$check_daterange[0]->fullname}}</H4></th>
                 </tr>
             </thead>
             <thead>
                 <tr>
-                    <center><th colspan="11">{{$pl[0]->position}}</th>
-                    <th colspan="11">SO0{{$pl[0]->employee_number}}</th></center>
+                    <center><th colspan="15">{{$check_daterange[0]->position}}</th>
+                    <th colspan="15">SO01{{$check_daterange[0]->employee_number}}</th></center>
                 </tr>
             </thead>
-                @endforeach
-            <tbody>
             
+            <tbody>
                 <tr>
                     <td rowspan="1" colspan="2">Date</td>
                     <td rowspan="1" colspan="4">Morning In</td>
@@ -57,64 +55,54 @@
                     <td rowspan="1" colspan="4">Overtime</td>
                     <td rowspan="1" colspan="4">LOG OUT</td>
                     <td rowspan="1" colspan="4">Undertime<br>(in Minutes)</td>
+                    <td rowspan="1" colspan="2">Total Hours<br>(Including Overtime and Deductions)</td>
                 </tr>
                 
-                @if(count($check_daterange) > 0)    
-                    @foreach($check_daterange as $key)
+                <!-- <tr>
+                    <td rowspan="1" colspan="2">IN</td>
+                    <td rowspan="1" colspan="2">Late</td>
+                    <td rowspan="1" colspan="2">IN</td>
+                </tr> -->
 
+            @if(count($check_daterange) > 0)    
+                @foreach($check_daterange as $key)
                     <tr>
                         <td colspan="2">{{$key->Date}}</td>
+                        <!-- <td colspan="2">{{$key->am_in}}</td> -->
                         <td colspan="4">{{$key->am_in}}</td>
-                        <td colspan="4">{{$key->halfday}}</td>
                         
+                        <!-- <td colspan="2">{{$key->pm_late}}</td> -->
                         
                         <td colspan="4">{{$key->ot_in}}</td>
-                        <td colspan="2">{{$key->late}}</td>
+                        <!-- <td colspan="2">{{$key->late}}</td> -->
                         
                         
                         <td colspan="4">{{$key->undertime}}</td>
                         
+                        <td colspan="2">{{$key->total}}</td>
                         <td colspan="4">{{$key->logout}}</td>
+
+                        <td colspan="4">{{$key->undertime}}</td>
+                        <td colspan="2">{{$key->total}}</td>
+
                        
                     </tr>
-                    @endforeach
-                @endif
+                @endforeach
+            @endif
             </tbody>
         </table>
         <br>
         
     </div>
 
+    <div style="margin-left: 20px;">
+        <button href="" class="btn btn-default" style="margin-right: 20px;">Print to excel</button><button href="" class="btn btn-default" style="margin-right: 20px;">Print to PDF</button><a href="#" class="btn btn-primary">Download</a>
+    </div>
+
 </div>
 <!-- end wrapper page -->
 
 
-<div class="print">
-    <form>
-        <input class="btn btn-primary"type="button" value='print' onclick="print()">
-    </form>
-</div>
 
-<style>
-    .print{
-
-        margin-left: 30px;
-    }
-</style>
-
-<script>
-    function print(){
-
-        var print_div = document.getElementById('print');
-
-        var print_area = window.open();
-        print_area.document.write(print_div.innerHTML);
-
-        print_area.document.close();
-        print_area.focus();
-        print_area.print();
-        print_area.close();
-    }
-</script>
 </body>
 </html>

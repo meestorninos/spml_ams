@@ -149,46 +149,40 @@
 
             <!-- end row -->
 
-            <div class="row">
-                
-            </div>
-
-            <div class="row">
+            <div class="row print" id="print">
                 <div class="col-xl-12 col-md-12">
                     <div class="text-center card" style="min-height: 377px;">
                         <div class="card-body">
-                            <div class="row">
+                            <div class="row print" id="print">
                                 <table width="100%" class="table-striped">
+                                    <th>Date</th>
                                     <th>Fullname</th>
                                     <th>Employee Number</th>
                                     <th>Position</th>
-                                    <th>Status</th>
                                     <th>AM IN</th>
-                                    <th>AM LATE</th>
-                                    <th>PM LATE</th>
                                     <th>HALFDAY</th>
                                     <th>OT IN</th>
                                     <th>UNDERTIME</th>
                                     <th>LATE</th>
                                     <th>LOGOUT</th>
+                                    <th>Date</th>
 
                                     
                                     @foreach($intern_record as $key)
 
                                         @if($key['position'] === 'intern')
-                                            <tr> 
+                                            <tr>
+                                                <td>{{$key->Date}}</td> 
                                                 <td>{{$key->fullname}}</td>
                                                 <td>{{$key->employee_number}}</td>
                                                 <td>{{$key->position}}</td>
-                                                <td>{{$key->status}}</td>
                                                 <td>{{$key->am_in}}</td>
-                                                <td>{{$key->am_late}}</td>
-                                                <td>{{$key->pm_late}}</td>
                                                 <td>{{$key->halfday}}</td>
                                                 <td>{{$key->ot_in}}</td>
                                                 <td>{{$key->undertime}}</td>
                                                 <td>{{$key->late}}</td>
                                                 <td>{{$key->logout}}</td>
+                                                <td>{{$key->status}}</td>
                                             </tr>   
                                         @endif
 
@@ -201,6 +195,10 @@
                     </div>
                 </div>
             </div>
+
+            <form>
+                <input class="btn btn-primary"type="button" value='print' onclick="print()">
+            </form>
         </div>
         <!-- end row -->
     </div> <!-- container-fluid -->
@@ -223,6 +221,21 @@
 
 <script>
     var resizefunc = [];
+</script>
+
+<script>
+    function print(){
+
+        var print_div = document.getElementById('print');
+
+        var print_area = window.open();
+        print_area.document.write(print_div.innerHTML);
+
+        print_area.document.close();
+        print_area.focus();
+        print_area.print();
+        print_area.close();
+    }
 </script>
 
 <!-- jQuery  -->

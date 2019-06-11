@@ -270,7 +270,7 @@
                                                 <tr>
                                                     <td style=" vertical-align: middle;"><a style="text-transform: uppercase;">{{$key->emp_lastname}},</a> {{$key->emp_firstname}} <a class="mid">{{$key->emp_middlename}}</a></td>
                                                     <td style=" vertical-align: middle;">{{$key->emp_department}}</td>
-                                                    <td style=" vertical-align: middle;">SE01{{$key->emp_num}}</td>
+                                                    <td style=" vertical-align: middle;">{{$key->emp_num}}</td>
                                                     <td style=" vertical-align: middle;">
                                                         <center>
                                                     

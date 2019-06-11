@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Intern;
-use App\Employee;
+use App\InternInfo;
+use App\EmployeeInfo;
+use App\DailyTimeRecord;
 
 class IntArcController extends Controller
 {
@@ -25,6 +26,14 @@ class IntArcController extends Controller
      */
     public function index()
     {
-        return view('admin/internarchive');
+        return view('admin.internarchive');
+    }
+
+    public function softDelete($id){
+
+        $id = Contents::find( $id );
+        $id ->delete();
+
+        return redirect()->back()->with('id');
     }
 }

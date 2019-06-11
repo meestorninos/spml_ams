@@ -47,8 +47,8 @@
                                 <center>
                                     <select class="log-selection" id="selection-of-position-login">
                                         <option selected="" disabled="">Employee or Intern</option>
-                                        <option value="SE01">Employee</option>
-                                        <option value="SO01">Intern</option>
+                                        <option value="SE0">Employee</option>
+                                        <option value="SO0">Intern</option>
                                     </select>
                                 </center>
                                 <center><div class="form-group">
@@ -77,8 +77,8 @@
                                 <center>
                                     <select class="log-selection" id="selection-of-position-logout">
                                         <option selected="" disabled="">Employee or Intern</option>
-                                        <option value="SE01">Employee</option>
-                                        <option value="SO01">Intern</option>
+                                        <option value="SE0">Employee</option>
+                                        <option value="SO0">Intern</option>
                                     </select>
                                 </center>
 
