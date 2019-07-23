@@ -280,7 +280,7 @@
 
                                                             <a href="{{route('edit-intern-dtr')}}"><span class="m-l-2"><i class="zmdi zmdi-edit action-icons"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></i></span></a>
 
-                                                            <a href="{{route('intern-softDelete')}}" onclick="archive()"><span class="m-l-2"><i class="zmdi zmdi-archive action-icons" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Archive"></i></span>
+                                                            <a href="{{action('IntArcController@softDelete',$key->intern_id)}}" onclick="archive()"><span class="m-l-2"><i class="zmdi zmdi-archive action-icons" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Archive"></i></span>
                                                         </center>
                                                        </td>
                                                         

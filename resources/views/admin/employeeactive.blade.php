@@ -278,7 +278,7 @@
                                                             
                                                             <a href=""><span class="m-l-2"><i class="zmdi zmdi-edit action-icons"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></i></span></a>
 
-                                                            <a href="#" onclick="archive()"><span class="m-l-2"><i class="zmdi zmdi-archive action-icons" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Archive"></i></span>
+                                                            <a href="{{action('EmpArcController@emp_delete',$key->emp_id)}}" onclick="archive()"><span class="m-l-2"><i class="zmdi zmdi-archive action-icons" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Archive"></i></span>
                                                         </center>
                                                         </td>
                                                         

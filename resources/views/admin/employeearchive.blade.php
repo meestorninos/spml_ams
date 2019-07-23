@@ -232,30 +232,18 @@
                                                 <th>Nickname</th>
                                                 <th>Department</th>
                                                 <th>ID Number</th>
-                                                <th>Password</th>
-                                                <th>Actions</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
+                                        @foreach($sho as $key)
                                             <tr>
-                                                <td>Tiger Doe</td>
-                                                <td>Ger</td>
-                                                <td>Marketing</td>
-                                                <td>SE018-030</td>
-                                                <td>hellomars</td>
-                                                <td>
-                                                    <center>
-                                                        <a href="add-attendance.html"><span class="m-l-2"><i class="zmdi zmdi-plus-circle action-icons"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Add Attendance"></i></span></a>
-
-                                                            <a href="view.html"><span class="m-l-2"><i class="zmdi zmdi-eye action-icons" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="View"></i></span></a>
-                                                            
-                                                        <a href="view.html"><span class="m-l-2"><i class="zmdi zmdi-eye action-icons"  data-toggle="tooltip" data-placement="top" title="" data-original-title="View"></i></span></a>
-
-                                                        <a href="#" onclick="retrieve()"><span class="m-l-2"><i class="zmdi zmdi-refresh action-icons" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Retrieve"></i></span></a>
-                                                    </center>
-                                                </td>
+                                                <td>{{$key->emp_lastname}}, {{$key->emp_firstname}} {{$key->emp_middlename}} </td>
+                                                <td>{{$key->emp_nickName}}</td>
+                                                <td>{{$key->emp_department}}</td>
+                                                <td>{{$key->emp_num}}</td>
                                             </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

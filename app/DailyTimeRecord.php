@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class DailyTimeRecord extends Model
 {
+
     protected $table = 'daily_time_records';
 
     public function internInfo()

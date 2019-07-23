@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\EmployeeInfo;
 use App\InternInfo;
 use App\DailyTimeRecord;
-use App\department;
+use App\Department;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;

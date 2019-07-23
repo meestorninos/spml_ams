@@ -13,4 +13,6 @@ class EmpActController extends Controller
         $employee = EmployeeInfo::all();
         return view('admin/employeeactive',compact('employee'));
     }
+
+    
 }

@@ -108,6 +108,8 @@ Route::prefix('admin')->group(function(){
 
 	Route::get('daily-attendance','ViewRecordController@dailyAttendance')->name('daily-attendance');
 
+	Route::get('emp_delete/{emp_id}', 'EmpArcController@emp_delete')->name('emp_delete');
+	Route::get('int_delete/{intern_id}','IntArcController@softDelete')->name('int_delete');
 });
 
 Route::get('/', 'DailyTimeRecordController@loginForm')->name('welcome');

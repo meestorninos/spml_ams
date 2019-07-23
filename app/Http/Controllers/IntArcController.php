@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\InternInfo;
 use App\EmployeeInfo;
 use App\DailyTimeRecord;
+use Illuminate\Support\Facades\DB;
 
 class IntArcController extends Controller
 {
@@ -26,14 +27,15 @@ class IntArcController extends Controller
      */
     public function index()
     {
-        return view('admin.internarchive');
+        $sho = InternInfo::onlyTrashed()->get();
+        return view('admin.internarchive',compact('sho'));
+        
     }
 
-    public function softDelete($id){
+    public function softDelete($key){
 
-        $id = Contents::find( $id );
-        $id ->delete();
-
-        return redirect()->back()->with('id');
+        $del = InternInfo::where('intern_id',$key);
+        $del->delete();
+        return redirect('admin/internactive');
     }
 }

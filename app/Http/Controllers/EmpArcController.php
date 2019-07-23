@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Intern;
-use App\Employee;
+use App\InternInfo;
+use App\EmployeeInfo;
+use App\DailyTimeRecord;
+
+use Illuminate\Support\Facades\DB;
 
 class EmpArcController extends Controller
 {
@@ -25,6 +28,14 @@ class EmpArcController extends Controller
      */
     public function index()
     {
-        return view('admin/employeearchive');
+        $sho = EmployeeInfo::onlyTrashed()->get();
+        return view('admin/employeearchive',compact('sho'));
+    }
+    public function emp_delete($key){
+
+        $del = EmployeeInfo::where('emp_id',$key);
+        $del->delete();
+        return redirect('admin/employeeactive');
+
     }
 }
